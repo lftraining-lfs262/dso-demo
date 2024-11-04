@@ -38,9 +38,15 @@ pipeline {
             }
           }
         }
+        stage('OCI Image BnP') {
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor -f `pwd`/Dockerfile -c `pwd` --insecure --skip-tls-verify --cache=true --destination=docker.io/${env.DOCKERHUB_ACCOUNT_ID}/dso-demo --force"
+            }
+          }
+        }
       }
     }
-
     stage('Deploy to Dev') {
       steps {
         // TODO
