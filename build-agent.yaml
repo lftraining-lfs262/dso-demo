@@ -43,6 +43,12 @@ spec:
       volumeMounts:
         - name: jenkins-docker-cfg
           mountPath: /kaniko/.docker
+    - name: slscan
+      image: shiftleft/sast-scan:v2.1.2
+      imagePullPolicy: Always
+      command:
+       - cat
+      tty: true
   volumes:
     - name: jenkins-docker-cfg
       projected:
