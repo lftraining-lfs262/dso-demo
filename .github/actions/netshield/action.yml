@@ -1,0 +1,11 @@
+name: 'NetShield'
+description: 'Zero-configuration secrets detection for pull requests. Fails CI when secrets are found.'
+author: 'NetShield'
+
+branding:
+  icon: 'shield'
+  color: 'red'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
